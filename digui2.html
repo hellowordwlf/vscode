@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>递归函数实现深拷贝</title>
+	<script>
+		 function copy(param){
+            var obj=param.constructor===Array?[]:{}
+             if(typeof obj!=='object'){
+             	return param;
+             }
+             
+             for(var key in param){
+             	obj[key]=typeof param[key]=='object'?copy(param[key]):param[key]
+             }
+             return obj;
+		 }
+
+		 var aa=[1,[12211],3]
+		 var cc=copy(aa)
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

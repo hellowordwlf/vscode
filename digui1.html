@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>深拷贝--递归回调</title>
+	<script>
+//第一种方法：
+              function aa(param){
+              	if(Object.prototype.toString.call(param)==='[object Array]'){
+                        var obj=[];
+                        param.forEach(value=>{
+                        	obj.push(aa(value))
+                        })
+              	}else if(Object.prototype.toString.call(param) ==='[object Object]'){
+              		var obj={}
+                        for(var key in param){
+                      obj[key]=aa(param[key])
+                        }
+              	}else{
+              		return param
+              	}
+              	return obj;
+              }
+
+             var bb={a:1,c:{1:1},b:1000}
+             var cc=aa(bb)
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
